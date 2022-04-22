@@ -8,7 +8,17 @@
     <title>Momentum App</title>
   </head>
   <body>
-    <form class="hidden" id="login-form"></form>
+    <form id="login-form" class="hidden">
+      <input
+        id="loginInput"
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <button>Log In</button>
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
     <h2 id="clock"></h2>
     <h1 class="hidden" id="greeting"></h1>
     <div id="quote">
