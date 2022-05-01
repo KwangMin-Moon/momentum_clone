@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+  </head>
+  <body>
+    <h1>Todo-List</h1>
+    <form class="todoForm">
+      <input type="text" placeholder="write a todo" />
+      <button>enter</button>
+    </form>
+    <ul class="todolist"></ul>
+    <script>
+      const todoForm = document.querySelector('.todoForm');
+      const todoInput = document.querySelector('.todoForm input');
+      const todoList = document.querySelector('.todolist');
+      let todo;
+      function removeTodo(event) {
+        const li = event.target.parentElement;
+        li.remove();
+      }
+
+      function paintTodo() {
+        const li = document.createElement('li');
+        const button = document.createElement('button');
+        const span = document.createElement('span');
+        span.innerText = todo;
+        button.innerText = '❌';
+        li.appendChild(span);
+        li.appendChild(button);
+        todoList.appendChild(li);
+        button.addEventListener('click', removeTodo);
+      }
+      function submitfn(event) {
+        event.preventDefault();
+        let newtodo = todoInput.value;
+        todo = newtodo;
+        console.log(todo);
+        todoInput.value = '';
+        paintTodo();
+      }
+
+      todoForm.addEventListener('submit', submitfn);
+    </script>
+  </body>
+</html>
